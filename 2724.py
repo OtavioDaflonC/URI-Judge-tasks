@@ -1,9 +1,10 @@
 #2724   ATENÇÃO: ESSA É UMA PRIMEIRA VERSÃO DO CÓDIGO E AINDA NÃO COBRE TODAS AS CIRCUNSTÂNCIAS TESTADAS NO URIJUDGE
 N= int(input())
+
 for i in range(N):
-  t= int(input())
+  T= int(input())
   lista=[]
-  for j in range(t):
+  for t in range(T):
     per= input()
     lista.append(per)
   lista2=[]
@@ -12,12 +13,36 @@ for i in range(N):
     exp=input()
     lista2.append(exp)
  
+#Trecho de análise:
+    #análise genérica    
+    #se o elemento perigoso está dentro da lista de experimentos
+for n in range(N):
   for y in lista2:
-    if 'Mg2F' in y:
-      teste=y.find('Mg2F')
-      coisa=y[teste +len(Mg2F)]
-      cont = [0]
-      if coisa.isupper():
-          cont += [1]
+    
+  
+    for x in lista:
+        if x == y:
+          print('Abortar')
+          
+          break
+        elif x in y:
+          try:
+            teste=y.find(x)
+            coisa=y[teste +(len(x))]
+            if coisa.isupper():
+                print ('Abortar')
+                
+                break
+            elif coisa.islower():
+                    continue
+            elif coisa.isnumeric():
+                    print ('Prossiga')
+                    break
+          except IndexError:
+            print('Prossiga')
+            break
+    
+    else:
+      print('Prossiga')
+  print('')   
 
-#em vez de usar in, usar o find: função de uma string, onde a variável nomeada terá o index das string aplicada na função
